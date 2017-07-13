@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<!--
+	Twenty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Your Music Teacher</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/dragdrop.css" />
+		<link rel="stylesheet" href="assets/css/loader.css" />
+		<!--Icon image from http://www.iconarchive.com/tag/music-note-->
+		<link rel="shortcut icon" href="note.ico" type="image/x-icon" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://unpkg.com/vexflow/releases/vexflow-debug.js"></script>
+
+	</head>
+	<body class="index" id="entire-body">
+
+		<div id="page-wrapper">
+
+            <div id="loader-wrapper">
+                <div class="ball-scale-multiple loader">
+                    <div class="loader-in">
+                    </div>
+                </div>
+            </div>
+			<article id="home">
+			<!-- Header -->
+				<header id="header" class="alt">
+                    <h1 id="logo"><a href="index.html">Your Music Teacher</a></h1>
+					<nav id="nav">
+						<ul>
+							<li class="current"><a href="#home">Home</a></li>
+							<li><a href="#about" class="button fit scrolly">About</a></li>
+                            <li><a href="#guide" class="button fit scrolly">Guide</a></li>
+                            <li><a href="https://github.com/csc301-fall-2016/project-team-02" target="_blank" class="button special">Github</a></li>
+						</ul>
+					</nav>
+				</header>
+			</article>
+			<!-- Banner -->
+				<section id="banner">
+
+					<!--
+						".inner" is set up as an inline-block so it automatically expands
+						in both directions to fit whatever's inside it. This means it won't
+						automatically wrap lines, so be sure to use line breaks where
+						appropriate (<br />).
+					-->
+                     <div class="container-drag" role="main">
+                        <!--Drag and drop box-->
+                        <form class="box container-drag" method="post" action="" enctype="multipart/form-data">
+
+					<div class="inner">
+
+						<header>
+							<h2>Your Music Teacher</h2>
+						</header>
+
+
+                            <div class="box__input">
+
+
+                                <input type="file" name="files[]" id="file" class="box__file" data-multiple-caption="{count} files selected" multiple onchange='openFile(event.target.files[0])'/>
+
+
+
+                                <p><label for="file"><strong>Click </strong> to select a file or <br></label>
+                                <strong>Drag </strong> it in here or <br>
+                                <strong onclick="toggleButtons()">Record</strong> audio
+								<br>
+								<div id="onRecord" style="display: none">
+									<i id="startR" onclick="toggleLiveInput()" class="recordIcon fa fa-circle" aria-hidden="true"></i>
+									<i class="recordIcon hidden fa fa-stop-circle-o" aria-hidden="true"></i>
+									<i onclick="toggleLiveInput()" class="recordIcon fa fa-stop" aria-hidden="true"></i>
+								</div>
+								<!-- <a onclick="toggleLiveInput()">use live input</a> -->
+                                </p>
+
+
+<!--                                <button type="submit" class="box__button">Upload</button>-->
+                            </div>
+                            <br>
+                            <p>
+                                <strong><label for="file_uploaded" id="uploaded"></label></strong>
+                            </p>
+                        <div id="detector"></div>
+
+
+						<footer>
+							<ul id="analyzeButton" class="disabledLI">
+								<li class=""><a id="useit" onclick="startProcess()" class="button fit scrolly">Analyze</a></li>
+							</ul>
+                            <ul class="">
+								<li><a id="displaySheet" onclick="resetpage()" class="button fit scrolly">Reset</a></li>
+							</ul>
+						</footer>
+
+
+
+					</div>
+
+                </form>
+                </div>
+				</section>
+
+
+			<!-- Main -->
+				<article id="main" class="scrollTo">
+
+                    	<!-- One -->
+						<section id="musicsheet" class="wrapper style2 container special-alt">
+							<div>
+								<div>
+
+									<header>
+										<h2>And the magic is here...</h2>
+									</header>
+									<p>
+                                        <center>
+									<div id="notesContent"></div>
+									<div id="notesContent"></div>
+                                        </center>
+										We hope this helps you out!<br>
+                                    </p>
+<!--
+									<footer>
+										<ul class="buttons">
+											<li><a href="#" class="button">Find Out More</a></li>
+										</ul>
+									</footer>
+-->
+
+								</div>
+<!--
+								<div class="4u 12u(narrower) important(narrower)">
+
+									<ul class="featured-icons">
+										<li><span class="icon fa-clock-o"><span class="label">Feature 1</span></span></li>
+										<li><span class="icon fa-volume-up"><span class="label">Feature 2</span></span></li>
+										<li><span class="icon fa-laptop"><span class="label">Feature 3</span></span></li>
+										<li><span class="icon fa-inbox"><span class="label">Feature 4</span></span></li>
+										<li><span class="icon fa-lock"><span class="label">Feature 5</span></span></li>
+										<li><span class="icon fa-cog"><span class="label">Feature 6</span></span></li>
+									</ul>
+
+								</div>
+-->
+							</div>
+						</section>
+
+					<header id="about" class="scrollTo special container">
+
+						<span class="icon fa-music"></span>
+						<h2><strong>Your Music Teacher</strong> is free tool for all
+						<br />
+						newcomers to the instrumental world of music.</h2>
+						<p>Many people want to learn how to play unconventional songs that do not have existing  or easily accessible sheet music
+							(music from tv shows, anime, EDM, other countries) but they do not have the skills to transcribe music simply from listening.<br>
+							Your Music Teacher solves the hassle of looking for sheet music online as some can be quite hard to find, while for other songs there are none available.
+
+						</p>
+
+					</header>
+
+					<header id="guide" class="scrollTo special container">
+
+						<span class="icon fa-question-circle-o"></span>
+						<h2><strong>Guide</strong>
+						<br />
+						Pick up an instrument, and be excited to learn!</h2>
+						<p>
+							1. Music Teacher works best with clear, single layered tunes. <br>
+
+							2. Either select an audio file from your computer or drag it on to the box. <br>
+
+							3. Once you have selected your audio, click the 'Analyze!' button and Music Teacher will generate the notes alongside your audio!
+						</p>
+
+					</header>
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+            <script src="assets/js/jquery.scrolly.min.js"></script>
+		    <script src="assets/js/jquery.scrollgress.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/upload.js"></script>
+			<script src="assets/js/notes.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
